@@ -1,0 +1,241 @@
+<!-- ===================== overons.html (UPDATED FULL) ===================== -->
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Over Ons – Dogu Kebab</title>
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Page styles -->
+    <link rel="stylesheet" href="css/overons.css" />
+
+    <!-- Swiper & AOS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- (optional) cache-busted global -->
+    <link rel="stylesheet" href="css/style.css?v=7">
+
+    <script src="js/script.js?v=2" defer></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="index.html" class="logo" aria-label="Dogu Kebab Home">
+            <img src="images/logo.png" alt="Dogu Kebab logo" />
+            <span class="brand-text">Pepper&nbsp;Lier</span>
+        </a>
+
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"
+                onclick="var n=document.getElementById('site-nav');var b=this;if(n){n.classList.toggle('show');b.setAttribute('aria-expanded', n.classList.contains('show')?'true':'false');}">
+            &#9776;
+        </button>
+
+        <nav class="nav-links" id="site-nav">
+            <a href="index.html" class="active">Home</a>
+            <a href="overons.html">Over Ons</a>
+            <a href="menu.html">Menu</a>
+            <a href="reserveren.html">Reserveren</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- ===================== HERO (RICHER) ===================== -->
+    <section class="hero" aria-label="Over Ons Hero">
+        <!-- background + gradient overlay are in CSS -->
+        <div class="hero__overlay" aria-hidden="true"></div>
+        <div class="bokeh" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+        <div class="hero__content" data-parallax data-speed="0.3" data-aos="fade-up">
+            <span class="hero__kicker">Over Ons</span>
+            <h1 class="hero__title">Een reis door smaak, cultuur en gastvrijheid</h1>
+            <p class="hero__lead">Sinds 1998 verwelkomen we onze gasten met authentieke smaken, verse ingrediënten en een warme glimlach. Ontdek het verhaal achter onze keuken, het team en het vakmanschap dat elk bord bijzonder maakt.</p>
+            <div class="hero__cta">
+                <a href="reserveren.html" class="btn-pill hero-cta">Reserveer Nu</a>
+                <a href="menu.html" class="btn-pill ghost hero-cta">Bekijk Menu</a>
+            </div>
+            <div class="ornament" aria-hidden="true">
+                <svg width="160" height="20" viewBox="0 0 160 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 10 H60" stroke="currentColor" stroke-width="1.5" opacity=".6" />
+                    <circle cx="80" cy="10" r="4" stroke="currentColor" stroke-width="1.5" fill="none" />
+                    <path d="M100 10 H158" stroke="currentColor" stroke-width="1.5" opacity=".6" />
+                </svg>
+            </div>
+            <ul class="badges" role="list">
+                <li class="badge" id="rotating-badge">
+                    <span class="badge__title" id="badge-title">Uw Tafel Wacht</span>
+                    <span class="badge__desc" id="badge-desc">Reserveer vandaag nog</span>
+                </li>
+                <li class="badge">
+                    <span class="badge__title">Address</span>
+                    <span class="badge__desc">Lispersteenweg 10 • 2500 Lier</span>
+                </li>
+                <li class="badge">
+                    <span class="badge__title">Reserveer</span>
+                    <a class="badge__link" href="tel:+3212345678">0496 45 26 49</a>
+                </li>
+            </ul>
+        </div>
+
+    
+    </section>
+
+    <!-- ===================== TEAM ===================== -->
+    <section class="team-luxury-section" data-aos="fade-up">
+        <div class="team-bg-overlay"></div>
+        <h2 class="team-heading">Ontmoet ons Team</h2>
+        <div class="team-carousel">
+            <div class="team-member-card chef">
+                <div class="blur-circle circle1"></div>
+                <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1" alt="Ulgar" />
+                <h4>Ulgar <span class="badge">Chef</span></h4>
+                <p class="role">Chef & Mede-oprichter</p>
+                <blockquote>“Passie voor smaak en perfectie op elk bord.”</blockquote>
+            </div>
+            <div class="team-member-card">
+                <div class="blur-circle circle2"></div>
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2" alt="Nadia" />
+                <h4>Nadia</h4>
+                <p class="role">Medewerker</p>
+                <blockquote>“Gastvrijheid begint met een glimlach.”</blockquote>
+            </div>
+            <div class="team-member-card">
+                <div class="blur-circle circle3"></div>
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2" alt="Oktay" />
+                <h4>Oktay</h4>
+                <p class="role">Ober</p>
+                <blockquote>“Dagverse kwaliteit, elke dag opnieuw.”</blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== WAAROM WIJ ===================== -->
+    <section class="waaromwij" data-aos="fade-up">
+        <h2>Waarom Wij?</h2>
+        <div class="why-container">
+            <div class="why-col">
+                <div class="why-card">
+                    <img src="https://img.icons8.com/ios-filled/64/plant-under-sun.png" alt="Team" />
+                    <h3>Ervaren team</h3>
+                    <p>Ons team brengt jarenlange ervaring samen in gastvrijheid en culinaire tradities.</p>
+                </div>
+                <div class="why-card">
+                    <img src="https://img.icons8.com/ios-filled/64/leaf.png" alt="Tuin" />
+                    <h3>Verse ingrediënten</h3>
+                    <p>Dagelijks geselecteerde producten van topkwaliteit uit lokale markten.</p>
+                </div>
+            </div>
+            <div class="why-image">
+                <img src="images/dishes10.png" alt="Waarom Wij" />
+            </div>
+            <div class="why-col">
+                <div class="why-card">
+                    <img src="https://img.icons8.com/ios-filled/64/checked--v1.png" alt="Gastvrij" />
+                    <h3>Gastvrijheid</h3>
+                    <p>Onze gasten staan altijd centraal – met persoonlijke service en een glimlach.</p>
+                </div>
+                <div class="why-card">
+                    <img src="https://img.icons8.com/ios-filled/64/shopping-cart.png" alt="Prijs" />
+                    <h3>Betaalbare luxe</h3>
+                    <p>Hoogstaande gerechten voor eerlijke prijzen – kwaliteit voor iedereen toegankelijk.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FAVORI SLIDER ===================== -->
+    <section class="favorites" data-aos="fade-up">
+        <h2>Een Greep uit Onze Favorieten</h2>
+
+        <div class="swiper favorites-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide favorite-card"><img src="images/dish1.jpg" alt="Iskender" /><h4>Iskender</h4></div>
+                <div class="swiper-slide favorite-card"><img src="images/dish2.jpg" alt="Manti" /><h4>Manti</h4></div>
+                <div class="swiper-slide favorite-card"><img src="images/dish3.jpg" alt="Mezze Mix" /><h4>Mezze Mix</h4></div>
+                <div class="swiper-slide favorite-card"><img src="images/dish1.jpg" alt="Köfte" /><h4>Köfte</h4></div>
+                <div class="swiper-slide favorite-card"><img src="images/dish4.jpg" alt="Dagsoep" /><h4>Dagsoep</h4></div>
+
+                <div class="swiper-slide favorite-card"><img src="images/dish1.jpg" alt="Iskender" /><h4>Iskender</h4></div>
+                <div class="swiper-slide favorite-card"><img src="images/dish2.jpg" alt="Manti" /><h4>Manti</h4></div>
+                <div class="swiper-slide favorite-card"><img src="images/dish1.jpg" alt="Mezze Mix" /><h4>Mezze Mix</h4></div>
+                <div class="swiper-slide favorite-card"><img src="images/dish2.jpg" alt="Köfte" /><h4>Köfte</h4></div>
+                <div class="swiper-slide favorite-card"><img src="images/dish3.jpg" alt="Dagsoep" /><h4>Dagsoep</h4></div>
+            </div>
+
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+
+        <a href="menu.html" class="btn">Bekijk Volledig Menu</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Pepper Lier. Alle rechten voorbehouden.</p>
+        <div class="socials">
+            <a href="https://www.facebook.com/dogukebab/?locale=tr_TR">Facebook</a>
+            <a href="https://www.instagram.com">Instagram</a>
+            <a href="https://web.whatsapp.com/">Whatsapp</a>
+        </div>
+    </footer>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const swiper = new Swiper('.favorites-swiper', {
+                loop: true,
+                autoplay: { delay: 1500, disableOnInteraction: false },
+                navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+                pagination: { el: '.swiper-pagination', clickable: true },
+                spaceBetween: 30,
+                slidesPerView: 1,
+                breakpoints: {
+                    768: { slidesPerView: 2 },
+                    1024: { slidesPerView: 3 }
+                }
+            });
+        });
+
+        // Minimal parallax on hero
+        (function () {
+            const el = document.querySelector('[data-parallax]');
+            if (!el) return;
+            const speed = parseFloat(el.getAttribute('data-speed')) || 0.3;
+            const onScroll = () => { el.style.transform = `translateY(${window.scrollY * speed}px)`; };
+            window.addEventListener('scroll', onScroll, { passive: true });
+        })();
+    </script>
+
+
+    <script>
+        const messages = [
+            { title: "Uw Tafel Wacht", desc: "Reserveer vandaag nog" },
+            { title: "Special van de Dag", desc: "Proef onze chef’s creatie" },
+            { title: "Sinds 1998", desc: "Meer dan 25 jaar smaak & gastvrijheid" },
+            { title: "Met Liefde Bereid", desc: "Alleen de beste ingrediënten" }
+        ];
+
+        let currentIndex = 0;
+        const titleEl = document.getElementById("badge-title");
+        const descEl = document.getElementById("badge-desc");
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % messages.length;
+            titleEl.textContent = messages[currentIndex].title;
+            descEl.textContent = messages[currentIndex].desc;
+        }, 4000); // change every 4 seconds
+    </script>
+
+
+
+</body>
+</html>

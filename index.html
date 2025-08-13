@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dogu Kebab – Fine Dining & Cuisine</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Great+Vibes&display=swap" rel="stylesheet" />
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css?v=7" />
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="index.html" class="logo" aria-label="Dogu Kebab Home">
+            <img src="images/logo.png" alt="Dogu Kebab logo" />
+            <span class="brand-text">Pepper&nbsp;Lier</span>
+        </a>
+
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"
+                onclick="var n=document.getElementById('site-nav');var b=this;if(n){n.classList.toggle('show');b.setAttribute('aria-expanded', n.classList.contains('show')?'true':'false');}">
+            &#9776;
+        </button>
+
+        <nav class="nav-links" id="site-nav">
+            <a href="index.html" class="active">Home</a>
+            <a href="overons.html">Over Ons</a>
+            <a href="menu.html">Menu</a>
+            <a href="reserveren.html">Reserveren</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-slideshow">
+        <div class="slides" aria-hidden="true">
+            <div class="slide s1"></div>
+            <div class="slide s2"></div>
+            <div class="slide s3"></div>
+        </div>
+        <div class="hero-overlay">
+            <div class="hero-content" data-aos="fade-up">
+                <h1>Welkom bij Pepper Lier</h1>
+                <p>Waar gastronomie en sfeer samenkomen.</p>
+                <a href="reserveren.html" class="btn">Reserveer Nu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specials -->
+    <section class="specials" data-aos="fade-up">
+        <div class="specials-grid">
+            <div class="special-item">
+                <img src="https://sktperfectdemo.com/demos/bistro/wp-content/uploads/2018/03/icon1.png" alt="Eten icoon" />
+                <h3>Eten</h3>
+                <div class="divider"></div>
+                <p>Authentieke Turkse gerechten in Lier <br />Since 1997.</p>
+            </div>
+            <div class="special-item">
+                <img src="https://sktperfectdemo.com/demos/bistro/wp-content/uploads/2018/03/icon2.png" alt="Dessert icoon" />
+                <h3>Desserts</h3>
+                <div class="divider"></div>
+                <p>Baklava, Künefe en andere lekkernijen<br />uit de Turkse en Belgische keuken.</p>
+            </div>
+            <div class="special-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/3075/3075975.png" alt="Drinken icoon" />
+                <h3>Drinken</h3>
+                <div class="divider"></div>
+                <p>Frisdranken, warme dranken, bier, cocktails<br />en wijnen.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery: kütüphanesiz, kesintisiz yavaş kayan şerit -->
+    <section class="gallery-strip" data-aos="fade-left">
+        <div class="gallery-marquee">
+            <div class="track">
+                <!-- SET 1 -->
+                <img src="images/hero1.jpg" alt="Gallery 1">
+                <img src="images/hero2.jpg" alt="Gallery 2">
+                <img src="images/hero3.jpg" alt="Gallery 3">
+                <img src="images/dish1.jpg" alt="Gallery 4">
+                <img src="images/dish2.jpg" alt="Gallery 5">
+                <img src="images/dish3.jpg" alt="Gallery 6">
+                <img src="images/dish4.jpg" alt="Gallery 7">
+                <img src="images/dishes10.png" alt="Gallery 8">
+                <!-- SET 2 (aynı görselleri tekrar ederek düzgün loop sağlıyoruz) -->
+                <img src="images/hero1.jpg" alt="Gallery 1 duplicate">
+                <img src="images/hero2.jpg" alt="Gallery 2 duplicate">
+                <img src="images/hero3.jpg" alt="Gallery 3 duplicate">
+                <img src="images/dish1.jpg" alt="Gallery 4 duplicate">
+                <img src="images/dish2.jpg" alt="Gallery 5 duplicate">
+                <img src="images/dish3.jpg" alt="Gallery 6 duplicate">
+                <img src="images/dish4.jpg" alt="Gallery 7 duplicate">
+                <img src="images/dishes10.png" alt="Gallery 8 duplicate">
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation CTA -->
+    <section class="cta" data-aos="zoom-in">
+        <h2>Klaar om te reserveren?</h2>
+        <a href="reserveren.html" class="btn">Boek een tafel</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Pepper Lier. Alle rechten voorbehouden.</p>
+        <div class="socials">
+            <a href="https://www.facebook.com/dogukebab/?locale=tr_TR">Facebook</a>
+            <a href="https://www.instagram.com">Instagram</a>
+            <a href="https://web.whatsapp.com/">Whatsapp</a>
+        </div>
+    </footer>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
+</body>
+</html>
