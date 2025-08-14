@@ -20,7 +20,7 @@
     <!-- Navbar -->
     <header class="navbar">
         <a href="index.html" class="logo" aria-label="Dogu Kebab Home">
-            <img src="images/logo.png" alt="Dogu Kebab logo" />
+            <img src="images/logo.jpg" alt="Dogu Kebab logo" />
             <span class="brand-text">Pepper&nbsp;Lier</span>
         </a>
 
@@ -83,23 +83,23 @@
         <div class="gallery-marquee">
             <div class="track">
                 <!-- SET 1 -->
-                <img src="images/hero1.jpg" alt="Gallery 1">
-                <img src="images/hero2.jpg" alt="Gallery 2">
-                <img src="images/hero3.jpg" alt="Gallery 3">
-                <img src="images/dish1.jpg" alt="Gallery 4">
-                <img src="images/dish2.jpg" alt="Gallery 5">
-                <img src="images/dish3.jpg" alt="Gallery 6">
-                <img src="images/dish4.jpg" alt="Gallery 7">
-                <img src="images/dishes10.png" alt="Gallery 8">
+                <img src="images/doner.png" alt="Gallery 1">
+                <img src="images/doner1.png" alt="Gallery 2">
+                <img src="images/doner2.png" alt="Gallery 3">
+                <img src="images/doner3.png" alt="Gallery 4">
+                <img src="images/baklava.png" alt="Gallery 5">
+                <img src="images/tatli3.png" alt="Gallery 6">
+                <img src="images/tatli1.png" alt="Gallery 7">
+                <img src="images/tatli2.png" alt="Gallery 8">
                 <!-- SET 2 (aynı görselleri tekrar ederek düzgün loop sağlıyoruz) -->
-                <img src="images/hero1.jpg" alt="Gallery 1 duplicate">
-                <img src="images/hero2.jpg" alt="Gallery 2 duplicate">
-                <img src="images/hero3.jpg" alt="Gallery 3 duplicate">
-                <img src="images/dish1.jpg" alt="Gallery 4 duplicate">
-                <img src="images/dish2.jpg" alt="Gallery 5 duplicate">
-                <img src="images/dish3.jpg" alt="Gallery 6 duplicate">
-                <img src="images/dish4.jpg" alt="Gallery 7 duplicate">
-                <img src="images/dishes10.png" alt="Gallery 8 duplicate">
+                <img src="images/doner.png" alt="Gallery 1">
+                <img src="images/doner1.png" alt="Gallery 2">
+                <img src="images/doner2.png" alt="Gallery 3">
+                <img src="images/doner3.png" alt="Gallery 4">
+                <img src="images/baklava.png" alt="Gallery 5">
+                <img src="images/tatli3.png" alt="Gallery 6">
+                <img src="images/tatli1.png" alt="Gallery 7">
+                <img src="images/tatli2.png" alt="Gallery 8">
             </div>
         </div>
     </section>
@@ -123,5 +123,28 @@
     <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>AOS.init();</script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const imgs = document.querySelectorAll('.gallery-marquee img');
+            const box = document.createElement('div');
+            box.className = 'lightbox';
+            const big = document.createElement('img');
+            box.appendChild(big);
+            document.body.appendChild(box);
+
+            imgs.forEach(i => i.addEventListener('click', () => {
+                big.src = i.src;              // istersen i.dataset.full ile büyük dosya
+                box.classList.add('active');
+            }));
+
+            // Karanlık alana veya ✕'e tıklayınca kapat
+            box.addEventListener('click', () => box.classList.remove('active'));
+        });
+    </script>
+
+
+
 </body>
 </html>
