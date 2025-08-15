@@ -275,30 +275,36 @@ img {
         animation-delay: calc(var(--hero-cycle) * -0.8);
     }
 
+/* --- HERO cross-fade: symmetric in/out, no gaps --- */
 @keyframes fadeZoom {
+    /* hidden at start */
     0% {
         opacity: 0;
         transform: scale(1.06);
     }
-
-    6% {
+    /* fade IN (0 → 10%) */
+    10% {
         opacity: 1;
+        transform: scale(1.03);
     }
-
+    /* fully visible (10 → 20%) */
     20% {
         opacity: 1;
         transform: scale(1.00);
     }
-
-    24% {
+    /* fade OUT (20 → 30%) */
+    30% {
         opacity: 0;
+        transform: scale(1.00);
     }
-
+    /* stay hidden (30 → 100%) */
     100% {
         opacity: 0;
         transform: scale(1.00);
     }
 }
+
+
 
 /* overlay layer */
 .hero-overlay {
