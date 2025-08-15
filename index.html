@@ -170,6 +170,13 @@
         });
     </script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.gallery-strip img').forEach(img => {
+                img.addEventListener('error', () => img.remove());
+            });
+        });
+    </script>
 
 
 </body>
