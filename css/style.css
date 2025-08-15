@@ -830,3 +830,55 @@ img {
     }
     /* 18s -> 30s */
 }
+
+/* === MOBILE TUNING: hero size & milder zoom === */
+@media (max-width: 768px) {
+    /* shorter hero instead of 100vh */
+    .hero-slideshow {
+        height: 70vh;
+        min-height: 60svh;
+    }
+
+    /* keep subjects higher in frame a bit */
+    .slide {
+        background-position: center 35%;
+        animation-name: fadeZoomMobile; /* use lighter zoom on mobile */
+    }
+
+    .hero-content h1 {
+        font-size: clamp(1.6rem, 7vw, 2.2rem);
+    }
+
+    .hero-content p {
+        font-size: clamp(.95rem, 3.5vw, 1.05rem);
+    }
+}
+
+/* lighter zoom so it doesn't look oversized */
+@keyframes fadeZoomMobile {
+    0% {
+        opacity: 0;
+        transform: scale(1.02);
+    }
+
+    8% {
+        opacity: 1;
+        transform: scale(1.01);
+    }
+
+    22% {
+        opacity: 1;
+        transform: scale(1.00);
+    }
+
+    32% {
+        opacity: 0;
+        transform: scale(1.00);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.00);
+    }
+}
+
