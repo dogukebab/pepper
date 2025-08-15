@@ -9,8 +9,7 @@
     --brand-gold: #bfa06c;
     --nav-h: 76px;
     --marquee-speed: 28s;
-    /* NEW: slower, seamless slideshow cycle (5 slides → ~7.2s each) */
-    --hero-cycle: 36s;
+    --hero-cycle: 36s; /* 5 slides → ~7.2s each */
 }
 
 body.dark {
@@ -76,8 +75,7 @@ img {
 /* ---------- NAVBAR ---------- */
 .navbar {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0 auto auto 0;
     right: 0;
     z-index: 4000;
     display: flex;
@@ -99,18 +97,16 @@ img {
 }
 
     .logo img {
-        height: calc(var(--nav-h) - 4px); /* üst/alt boşluk bırakır */
+        height: calc(var(--nav-h) - 4px);
         width: calc(var(--nav-h) - 4px);
         border-radius: 50%;
         object-fit: cover;
-        /* Şık çift halka ve gölge */
-        box-shadow: 0 0 0 0px #fff, /* ince beyaz iç halka */
-        0 4px 20px rgba(0,0,0,0.15); /* yumuşak gölge */
-        background: #fff; /* logoyu netleştirir */
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        background: #fff;
     }
 
 .brand-text::first-letter {
-    color: #e60000; /* ya da var(--accent-color) */
+    color: #e60000;
 }
 
 .nav-links {
@@ -154,16 +150,18 @@ img {
 
 /* ---------- MOBILE NAV ---------- */
 @media (max-width:900px) {
-
     :root {
-        --nav-h: 86px; /* mobilde daha yüksek navbar */
+        --nav-h: 86px;
     }
+    /* taller navbar on mobile */
 
     .navbar {
         display: grid;
         grid-template-columns: auto 1fr auto;
         align-items: center;
         gap: .75rem;
+        background: transparent; /* sits over hero */
+        box-shadow: none;
     }
 
     .logo {
@@ -182,9 +180,9 @@ img {
         right: clamp(1rem,3vw,2.5rem);
         flex-direction: column;
         align-items: flex-start;
-        background: var(--bg-color);
-        border: 1px solid rgba(0,0,0,.06);
-        box-shadow: 0 10px 24px rgba(0,0,0,.10);
+        background: rgba(0,0,0,.92);
+        border: 0;
+        box-shadow: 0 10px 24px rgba(0,0,0,.35);
         padding: .5rem 0;
         min-width: 220px;
         border-radius: 10px;
@@ -195,39 +193,33 @@ img {
         transition: opacity .2s ease,transform .2s ease,visibility 0s .2s;
         max-height: calc(100vh - var(--nav-h) - 16px);
         overflow-y: auto;
+        backdrop-filter: blur(4px);
     }
 
         .nav-links a {
             display: block;
             padding: .75rem 1rem;
             width: 100%;
+            color: #fff !important;
         }
+
+            .nav-links a:hover {
+                background: rgba(255,255,255,.12) !important;
+            }
 
         .nav-links.show {
             visibility: visible;
             opacity: 1;
             transform: translateY(0);
         }
-
-    .logo img {
-        height: calc(var(--nav-h) - 4px);
-        width: calc(var(--nav-h) - 4px);
-        border-radius: 50%;
-        object-fit: cover;
-        box-shadow: 0 0 0 1.8px #fff, 0 0 0 3.5px var(--brand-gold), 0 3px 8px rgba(0,0,0,0.12);
-        background: #fff;
-    }
-
-    .brand-text {
-        font-size: clamp(2rem,3vw,2rem);
-    }
 }
 
-/* ---------- HERO (PRO SLIDESHOW, SLOWER & SEAMLESS) ---------- */
+/* ---------- HERO (PRO SLIDESHOW) ---------- */
 .hero-slideshow {
     position: relative;
-    height: clamp(60vh,85vh,90vh);
+    height: clamp(60vh,85vh,90vh); /* desktop default */
     overflow: hidden;
+    background: #000; /* safe base behind slides */
 }
 
 .slides {
@@ -244,12 +236,12 @@ img {
     background-repeat: no-repeat;
     opacity: 0;
     transform: scale(1.06);
-    /* slower, uses shared cycle; 'both' prevents jump on loop */
     animation: fadeZoom var(--hero-cycle) linear infinite both;
     will-change: opacity,transform;
+    background-color: #000; /* prevents any flash */
 }
 
-    /* images + seamless staggering via negative delays (5 slides = 20% each) */
+    /* desktop images + seamless staggering (5 slides = 20% each) */
     .slide.s1 {
         background-image: url('../images/home1.jpg');
         animation-delay: calc(var(--hero-cycle) * 0);
@@ -264,17 +256,18 @@ img {
         background-image: url('../images/foto7.jpg');
         animation-delay: calc(var(--hero-cycle) * -0.4);
     }
-    /* NEW slides */
+
     .slide.s4 {
         background-image: url('../images/img20.jpg');
         animation-delay: calc(var(--hero-cycle) * -0.6);
     }
 
     .slide.s5 {
-        background-image: url('../images/img9.JPG');
+        background-image: url('../images/img9.jpg');
         animation-delay: calc(var(--hero-cycle) * -0.8);
     }
 
+/* desktop cross-fade with subtle zoom */
 @keyframes fadeZoom {
     0% {
         opacity: 0;
@@ -300,7 +293,7 @@ img {
     }
 }
 
-/* overlay layer */
+/* overlay content */
 .hero-overlay {
     position: absolute;
     inset: 0;
@@ -311,7 +304,8 @@ img {
     text-align: center;
     padding: clamp(1rem,3vw,2rem);
     color: #fff;
-    background: rgba(0,0,0,.22);
+    /* gentle darkening for legibility */
+    background: linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,.28));
 }
 
 .hero-content h1 {
@@ -334,7 +328,7 @@ img {
     font-weight: 600;
 }
 
-/* reduces motion */
+/* reduce motion */
 @media (prefers-reduced-motion:reduce) {
     .slide {
         animation: none;
@@ -345,63 +339,61 @@ img {
         }
 }
 
-/* ---------- MOBILE: HERO-FIRST INTRO ---------- */
-@media (max-width:768px) {
+/* ---------- MOBILE HERO: TRUE FULL SCREEN + STABLE FRAMING ---------- */
+@media (max-width: 900px) {
+    /* no page push-down under fixed navbar */
     body {
         padding-top: 0;
     }
 
+    /* fill the real viewport height on mobile (URL bar aware) */
     .hero-slideshow {
-        height: 100vh;
+        height: 100svh;
         min-height: 100svh;
     }
 
-    .navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        background: transparent;
-        box-shadow: none;
-        z-index: 3000;
-    }
-
-    body.has-hero .brand-text, body.has-hero .navbar .nav-links a {
-        color: #fff;
-    }
-
-    body.has-hero .navbar .nav-links {
-        right: 1rem;
-        background: rgba(0,0,0,.92) !important;
-        border: none !important;
-        box-shadow: 0 10px 24px rgba(0,0,0,.35) !important;
-        backdrop-filter: blur(4px);
-    }
-
-        body.has-hero .navbar .nav-links a:hover {
-            background: rgba(255,255,255,.1) !important;
+    @supports (height: 100dvh) {
+        .hero-slideshow {
+            height: 100dvh;
+            min-height: 100dvh;
         }
-
-    body.has-hero:not(.nav-solid) .menu-toggle {
-        color: var(--brand-gold) !important;
-        text-shadow: 0 0 2px rgba(0,0,0,.55),0 0 8px rgba(0,0,0,.35);
     }
 
-    body.nav-solid {
-        padding-top: var(--nav-h);
+    /* keep the subject a bit higher; remove zoom to avoid edge peeks */
+    .slide {
+        transform: none;
+        background-position: center 42%;
+        animation-name: fadeOnly; /* fade without scale on phones */
     }
 
-        body.nav-solid .navbar {
-            background: var(--bg-color);
-            box-shadow: 0 2px 10px rgba(0,0,0,.05);
-        }
+    /* make overlay respect notches/safe areas */
+    .hero-overlay {
+        padding-top: max(16px, env(safe-area-inset-top));
+        padding-bottom: max(16px, env(safe-area-inset-bottom));
+        background: linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.25));
+    }
+}
 
-            body.nav-solid .brand-text, body.nav-solid .navbar .nav-links a {
-                color: var(--text-color) !important;
-            }
+/* mobile fade-only timeline (matches desktop timing) */
+@keyframes fadeOnly {
+    0% {
+        opacity: 0;
+    }
 
-    body:not(.has-hero) .brand-text, body:not(.has-hero) .navbar .nav-links a {
-        color: var(--text-color) !important;
+    8% {
+        opacity: 1;
+    }
+
+    22% {
+        opacity: 1;
+    }
+
+    32% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
     }
 }
 
@@ -503,13 +495,14 @@ img {
     }
 
     .gallery-marquee img {
-        height: 150px; /* sabit yükseklik */
-        width: 150px; /* kare görünüm */
-        object-fit: cover; /* orantılı kırp */
+        height: 150px;
+        width: 150px;
+        object-fit: cover;
         border-radius: 10px;
         flex: 0 0 auto;
         box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        transition: transform 0.3s ease;
+        transition: transform .3s ease;
+        cursor: pointer;
     }
 
         .gallery-marquee img:hover {
@@ -614,38 +607,28 @@ img {
 
 /* Mobile dropdown theming fix */
 @media (max-width:900px) {
-    body:not(.nav-solid) .navbar .nav-links {
-        background: rgba(0,0,0,.92) !important;
-        border: 0 !important;
-        box-shadow: 0 12px 30px rgba(0,0,0,.4) !important;
-        backdrop-filter: blur(4px);
+    body.nav-solid .navbar {
+        background: var(--bg-color);
+        box-shadow: 0 2px 10px rgba(0,0,0,.05);
     }
 
-        body:not(.nav-solid) .navbar .nav-links a {
-            color: #fff !important;
+        body.nav-solid .navbar .nav-links {
+            background: var(--bg-color) !important;
+            border: 1px solid rgba(0,0,0,.06) !important;
+            box-shadow: 0 10px 24px rgba(0,0,0,.10) !important;
+            backdrop-filter: none;
         }
 
-            body:not(.nav-solid) .navbar .nav-links a:hover {
-                background: rgba(255,255,255,.12) !important;
+            body.nav-solid .navbar .nav-links a {
+                color: var(--text-color) !important;
             }
 
-    body.nav-solid .navbar .nav-links {
-        background: var(--bg-color) !important;
-        border: 1px solid rgba(0,0,0,.06) !important;
-        box-shadow: 0 10px 24px rgba(0,0,0,.10) !important;
-        backdrop-filter: none;
-    }
-
-        body.nav-solid .navbar .nav-links a {
-            color: var(--text-color) !important;
-        }
-
-            body.nav-solid .navbar .nav-links a:hover {
-                background: rgba(0,0,0,.06) !important;
-            }
+                body.nav-solid .navbar .nav-links a:hover {
+                    background: rgba(0,0,0,.06) !important;
+                }
 }
 
-/* ===== Bottom CTA (Klaar om te reserveren?) ===== */
+/* ===== Bottom CTA ===== */
 .cta {
     background: linear-gradient(0deg,#f6f3ed,#f9f6f0);
     border-radius: 14px;
@@ -701,13 +684,13 @@ img {
 }
 
 /* --- DESKTOP: hero fills view (header height removed) --- */
-@media (min-width: 901px) {
+@media (min-width:901px) {
     .hero-slideshow {
         height: calc(100vh - var(--nav-h));
     }
 }
 
-/* --- Global pill button (used by bottom CTA) --- */
+/* --- Global pill button (shared) --- */
 .btn {
     display: inline-block;
     white-space: nowrap;
@@ -730,8 +713,7 @@ img {
         outline: 3px solid rgba(202,169,75,.6);
         outline-offset: 2px;
     }
-
-/* Keep the HERO button as your red accent (only overrides inside hero) */
+/* keep hero button red */
 .hero-content .btn {
     border-radius: 6px;
     background: var(--accent-color);
@@ -740,39 +722,15 @@ img {
     box-shadow: none;
 }
 
-/* --- DESKTOP layout for the bottom CTA stripe --- */
-@media (min-width: 701px) {
-    .cta {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        align-items: center;
-        text-align: left;
-    }
-
-        .cta .btn {
-            justify-self: end;
-        }
-
-        .cta a {
-            text-decoration: none !important;
-        }
+/* --- Lightbox (click-to-zoom) --- */
+.gallery-marquee img:active {
+    transform: scale(.98);
 }
 
-/* --- Gallery: click-to-zoom hazırla --- */
-.gallery-marquee img {
-    cursor: pointer; /* tıklanabilir */
-    transition: transform .25s ease, box-shadow .25s ease;
-}
-
-    .gallery-marquee img:active {
-        transform: scale(.98);
-    }
-
-/* --- Lightbox (tam ekran büyütme) --- */
 .lightbox {
     position: fixed;
     inset: 0;
-    display: none; /* .active olunca görünür */
+    display: none;
     align-items: center;
     justify-content: center;
     background: rgba(0,0,0,.85);
@@ -803,7 +761,6 @@ img {
     }
 }
 
-/* (İsteğe bağlı) kapatma ikonu */
 .lightbox::after {
     content: "✕";
     position: absolute;
@@ -817,68 +774,13 @@ img {
     user-select: none;
 }
 
-
-/* Galeri şeridi – daha yavaş kaydır */
+/* Galeri şeridi – biraz daha yavaş */
 .gallery-strip {
-    --marquee-speed: 65s; /* Eskisi 28s idi; büyüdükçe yavaşlar */
+    --marquee-speed: 65s;
 }
 
-/* Mobilde de biraz yavaşlat (isteğe bağlı) */
-@media (max-width: 768px) {
+@media (max-width:768px) {
     .gallery-strip {
         --marquee-speed: 50s;
     }
-    /* 18s -> 30s */
 }
-
-/* === MOBILE TUNING: hero size & milder zoom === */
-@media (max-width: 768px) {
-    /* shorter hero instead of 100vh */
-    .hero-slideshow {
-        height: 70vh;
-        min-height: 60svh;
-    }
-
-    /* keep subjects higher in frame a bit */
-    .slide {
-        background-position: center 35%;
-        animation-name: fadeZoomMobile; /* use lighter zoom on mobile */
-    }
-
-    .hero-content h1 {
-        font-size: clamp(1.6rem, 7vw, 2.2rem);
-    }
-
-    .hero-content p {
-        font-size: clamp(.95rem, 3.5vw, 1.05rem);
-    }
-}
-
-/* lighter zoom so it doesn't look oversized */
-@keyframes fadeZoomMobile {
-    0% {
-        opacity: 0;
-        transform: scale(1.02);
-    }
-
-    8% {
-        opacity: 1;
-        transform: scale(1.01);
-    }
-
-    22% {
-        opacity: 1;
-        transform: scale(1.00);
-    }
-
-    32% {
-        opacity: 0;
-        transform: scale(1.00);
-    }
-
-    100% {
-        opacity: 0;
-        transform: scale(1.00);
-    }
-}
-
