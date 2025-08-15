@@ -159,3 +159,83 @@ html { scroll-behavior: smooth; }
     margin-bottom: 2rem;
   }
 }
+
+
+/* Başlık alt başlık */
+.contact-info .subhead {
+    margin: 1.25rem 0 .5rem;
+    font-size: 1.25rem;
+    color: #bfa06c;
+    font-weight: 700;
+}
+
+/* Üst bilgi listesi (adres/telefon/email) */
+.info-list {
+    list-style: none;
+    margin: 0 0 .75rem;
+    padding: 0;
+}
+
+    .info-list li {
+        display: grid;
+        grid-template-columns: 140px 1fr; /* solda etiket, sağda değer */
+        gap: .5rem;
+        padding: .35rem 0;
+        border-bottom: 1px solid #f3eee4;
+    }
+
+        .info-list li:last-child {
+            border-bottom: 0;
+        }
+
+    .info-list .label {
+        font-weight: 700;
+        color: #222;
+    }
+
+    .info-list .value a {
+        color: #bfa06c;
+        text-decoration: none;
+    }
+
+        .info-list .value a:hover {
+            text-decoration: underline;
+        }
+
+/* Açılış saatleri (iki kolon, tertemiz) */
+.hours-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+    .hours-list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 1rem;
+        padding: .35rem 0;
+        border-bottom: 1px dashed #efe8d9;
+    }
+
+        .hours-list li:last-child {
+            border-bottom: 0;
+        }
+
+    .hours-list .day {
+        font-weight: 600;
+        color: #222;
+    }
+
+    .hours-list .time {
+        color: #555;
+        font-variant-numeric: tabular-nums; /* sayılar hizalı */
+    }
+
+/* Dar ekranda sol kolon genişliğini biraz kısalt */
+@media (max-width: 480px) {
+    .info-list li {
+        grid-template-columns: 110px 1fr;
+    }
+}
+

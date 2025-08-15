@@ -1,10 +1,8 @@
-/* ========== FILE: css/menu.css (FULL) ========== */
 :root {
-    --bg-color: #f7f3eb; /* sayfa zemini (soft krem)   */
+    --bg-color: #f7f3eb;
     --text-color: #101826;
     --accent-color: #b22222;
     --card-bg: #ffffff;
-    /* elegance tema değişkenleri */
     --gold: #C7A35A;
     --ring: #efe5d8;
     --ink: #0f172a;
@@ -14,33 +12,32 @@
 /* ====== BASE ====== */
 body {
     margin: 0;
-    font-family: 'Segoe UI',sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     color: var(--text-color);
-    background: linear-gradient(180deg,#fbf9f4 0%, var(--bg-color) 100%);
+    background: linear-gradient(180deg, #fbf9f4 0%, var(--bg-color) 100%);
 }
 
 /* ===== HERO ===== */
 .menu-hero {
     position: relative;
     height: 90vh;
-    background: url('../images/dishes6.jpg') center/cover no-repeat;
+    background: url('../images/foto8.jpg') center 40% / cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    filter: none; /* no unnecessary darkening */
 }
 
     .menu-hero::after {
         content: "";
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at 15px 15px, rgba(255,255,255,.15) 2px, transparent 3px) 0 0/30px 30px;
-        opacity: .22;
-        pointer-events: none;
+        background: transparent; /* no dotted pattern */
     }
 
 .hero-overlay {
-    background-color: rgba(0,0,0,.6);
+    background: linear-gradient( 0deg, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.12) 35%, rgba(0,0,0,0.08) 100% );
     width: 100%;
     height: 100%;
     padding: 2rem;
@@ -49,7 +46,7 @@ body {
     justify-content: flex-start;
     text-align: center;
     padding-top: 12vh;
-    backdrop-filter: saturate(110%) blur(1px);
+    backdrop-filter: none; /* keep image sharp */
 }
 
 .menu-hero-content {
@@ -60,16 +57,17 @@ body {
     .menu-hero-content h1 {
         font-size: 3rem;
         margin: 0 0 .6rem;
-        font-family: 'Playfair Display',serif
+        font-family: 'Playfair Display', serif;
+        text-shadow: 0 2px 8px rgba(0,0,0,.22);
     }
 
     .menu-hero-content p {
         font-size: 1.2rem;
-        margin-bottom: 1.6rem
+        margin-bottom: 1.6rem;
+        text-shadow: 0 2px 8px rgba(0,0,0,.22);
     }
 
 /* ===== FILTER BUTTONS ===== */
-/* >>> DEĞİŞTİ: flex yerine grid kullanıyoruz, mobile’da da 2 sütun duracak */
 .menu-filter {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -84,7 +82,8 @@ body {
 .filter-btn {
     width: 100%;
     padding: .6rem 1rem;
-    background: #fff;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(4px);
     color: var(--accent-color);
     border: none;
     border-radius: 25px;
@@ -98,10 +97,10 @@ body {
     .filter-btn:hover, .filter-btn.active {
         background: var(--accent-color);
         color: #fff;
-        transform: translateY(-1px)
+        transform: translateY(-1px);
     }
 
-/* ===== MENU SECTION — ELEGANT ART-DECO BG ===== */
+/* ===== MENU SECTION ===== */
 .menu-section {
     position: relative;
     max-width: 1120px;
@@ -131,7 +130,7 @@ body {
 
 /* ===== SECTION TITLE ===== */
 .menu-title {
-    font-size: clamp(1.8rem,2.4vw,2.3rem);
+    font-size: clamp(1.8rem, 2.4vw, 2.3rem);
     font-weight: 800;
     letter-spacing: .2px;
     margin: 0 0 1.25rem;
@@ -145,13 +144,13 @@ body {
         width: 80px;
         height: 3px;
         margin: .6rem 0 0;
-        background: linear-gradient(90deg,var(--gold),rgba(199,163,90,.35),transparent);
+        background: linear-gradient(90deg, var(--gold), rgba(199,163,90,.35), transparent);
         border-radius: 3px;
     }
 
 /* ===== CATEGORY CARDS ===== */
 .category {
-    background: linear-gradient(180deg,#ffffff 0%,#fdf8f3 100%);
+    background: linear-gradient(180deg, #ffffff 0%, #fdf8f3 100%);
     border: 1px solid var(--ring);
     border-radius: 22px;
     padding: 1.4rem;
@@ -163,21 +162,21 @@ body {
     .category:hover {
         transform: translateY(-3px);
         box-shadow: 0 22px 60px rgba(17,23,40,.12);
-        border-color: #e8dcc8
+        border-color: #e8dcc8;
     }
 
     .category header {
         display: grid;
         grid-template-columns: 1fr auto;
         align-items: center;
-        gap: 1.1rem
+        gap: 1.1rem;
     }
 
     .category h3 {
         font-size: 1.22rem;
         margin: 0;
         color: var(--ink);
-        letter-spacing: .2px
+        letter-spacing: .2px;
     }
 
         .category h3::after {
@@ -186,16 +185,16 @@ body {
             width: 64px;
             height: 2px;
             margin: .5rem 0 0;
-            background: linear-gradient(90deg,var(--gold),rgba(199,163,90,.35),transparent);
+            background: linear-gradient(90deg, var(--gold), rgba(199,163,90,.35), transparent);
             border-radius: 2px;
         }
 
 /* ===== THUMBS ===== */
 .thumbs {
     display: grid;
-    grid-template-columns: repeat(3,min(160px,26vw));
+    grid-template-columns: repeat(3, min(160px, 26vw));
     gap: .7rem;
-    justify-content: end
+    justify-content: end;
 }
 
     .thumbs img {
@@ -205,18 +204,18 @@ body {
         border-radius: 16px;
         border: 1px solid var(--ring);
         box-shadow: 0 8px 22px rgba(17,23,40,.14);
-        background: linear-gradient(100deg,#f3ede4 20%,#fbf7f1 40%,#f3ede4 60%);
+        background: linear-gradient(100deg, #f3ede4 20%, #fbf7f1 40%, #f3ede4 60%);
         background-size: 200% 100%;
         animation: shimmer 2s ease-in-out infinite;
     }
 
 @keyframes shimmer {
     0% {
-        background-position: 200% 0
+        background-position: 200% 0;
     }
 
     100% {
-        background-position: -200% 0
+        background-position: -200% 0;
     }
 }
 
@@ -226,11 +225,11 @@ body {
     padding: 0;
     margin: .8rem 0 0;
     display: grid;
-    gap: .45rem 1rem
+    gap: .45rem 1rem;
 }
 
     .items.two-col {
-        grid-template-columns: 1fr 1fr
+        grid-template-columns: 1fr 1fr;
     }
 
     .items li {
@@ -240,28 +239,28 @@ body {
         padding: .65rem .85rem;
         border: 1px solid var(--ring);
         border-radius: 14px;
-        background: linear-gradient(180deg,#fff,#fdf8f2);
+        background: linear-gradient(180deg, #fff, #fdf8f2);
         box-shadow: 0 1px 0 rgba(255,255,255,.6) inset;
     }
 
         .items li:hover {
             border-color: #eadfcf;
-            background: linear-gradient(180deg,#fff,#fcf3e9)
+            background: linear-gradient(180deg, #fff, #fcf3e9);
         }
 
         .items li.wrap {
-            grid-template-columns: 1fr auto
+            grid-template-columns: 1fr auto;
         }
 
 .name {
     font-weight: 600;
-    color: var(--ink)
+    color: var(--ink);
 }
 
     .name em {
         font-style: normal;
         font-weight: 500;
-        color: var(--muted)
+        color: var(--muted);
     }
 
 /* ===== PRICE PILL ===== */
@@ -280,13 +279,13 @@ body {
 .footer {
     padding: 2rem 1rem;
     text-align: center;
-    color: #444
+    color: #444;
 }
 
     .footer .socials {
         display: flex;
         gap: .8rem;
-        justify-content: center
+        justify-content: center;
     }
 
 /* ===== RESPONSIVE ===== */
@@ -299,23 +298,22 @@ body {
 
 @media (max-width: 800px) {
     .menu-hero {
-        height: 100vh
+        height: 100vh;
     }
 
     .hero-overlay {
         justify-content: center;
-        padding-top: 0
+        padding-top: 0;
     }
 
     .menu-hero-content h1 {
-        font-size: 2.4rem
+        font-size: 2.4rem;
     }
 
     .menu-hero-content p {
-        font-size: 1.05rem
+        font-size: 1.05rem;
     }
 
-    /* >>> ÖNEMLİ: Mobilde de sütunlar korunuyor (2 sütun) */
     .menu-filter {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         max-width: 560px;
@@ -324,19 +322,18 @@ body {
     }
 
     .category header {
-        grid-template-columns: 1fr
+        grid-template-columns: 1fr;
     }
 
     .thumbs {
-        grid-template-columns: repeat(3,1fr)
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .items.two-col {
-        grid-template-columns: 1fr
+        grid-template-columns: 1fr;
     }
 }
 
-/* Çok dar telefonlar için (isteğe bağlı) */
 @media (max-width: 360px) {
     .menu-filter {
         grid-template-columns: repeat(2, minmax(0, 1fr));

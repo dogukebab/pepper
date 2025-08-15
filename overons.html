@@ -7,7 +7,7 @@
     <title>Over Ons – Dogu Kebab</title>
 
     <!-- Global styles -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css?v=7">
     <!-- Page styles -->
     <link rel="stylesheet" href="css/overons.css" />
 
@@ -15,9 +15,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
-    <!-- (optional) cache-busted global -->
-    <link rel="stylesheet" href="css/style.css?v=7">
 
     <script src="js/script.js?v=2" defer></script>
 </head>
@@ -43,9 +40,8 @@
         </nav>
     </header>
 
-    <!-- ===================== HERO (RICHER) ===================== -->
+    <!-- ===================== HERO ===================== -->
     <section class="hero" aria-label="Over Ons Hero">
-        <!-- background + gradient overlay are in CSS -->
         <div class="hero__overlay" aria-hidden="true"></div>
         <div class="bokeh" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
 
@@ -79,38 +75,68 @@
                 </li>
             </ul>
         </div>
-
-    
     </section>
 
     <!-- ===================== TEAM ===================== -->
     <section class="team-luxury-section" data-aos="fade-up">
-        <div class="team-bg-overlay"></div>
         <h2 class="team-heading">Ontmoet ons Team</h2>
+
         <div class="team-carousel">
-            <div class="team-member-card chef">
-                <div class="blur-circle circle1"></div>
-                <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1" alt="Ulgar" />
+            <!-- 1 -->
+            <article class="team-member-card chef">
+                <span class="blur-circle circle1" aria-hidden="true"></span>
+                <figure class="team-photo">
+                    <!-- LIGHTBOX TRIGGER -->
+                    <a href="#lb-ulgar" class="avatar-link">
+                        <img src="images/ulgar.png" alt="Ulgar – Chef" loading="lazy">
+                    </a>
+                </figure>
                 <h4>Ulgar <span class="badge">Chef</span></h4>
-                <p class="role">Chef & Mede-oprichter</p>
+                <p class="role">Chef &amp; Mede-oprichter</p>
                 <blockquote>“Passie voor smaak en perfectie op elk bord.”</blockquote>
-            </div>
-            <div class="team-member-card">
-                <div class="blur-circle circle2"></div>
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2" alt="Nadia" />
-                <h4>Nadia</h4>
+            </article>
+
+            <!-- 2 -->
+            <article class="team-member-card">
+                <span class="blur-circle circle2" aria-hidden="true"></span>
+                <figure class="team-photo">
+                    <a href="#lb-anita" class="avatar-link">
+                        <img src="images/Anita.png" alt="Anita – Medewerker" loading="lazy">
+                    </a>
+                </figure>
+                <h4>Anita</h4>
                 <p class="role">Medewerker</p>
                 <blockquote>“Dagverse kwaliteit, elke dag opnieuw.”</blockquote>
-            </div>
-            <div class="team-member-card">
-                <div class="blur-circle circle3"></div>
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2" alt="Oktay" />
+            </article>
+
+            <!-- 3 -->
+            <article class="team-member-card">
+                <span class="blur-circle circle3" aria-hidden="true"></span>
+                <figure class="team-photo">
+                    <a href="#lb-tolga" class="avatar-link">
+                        <img src="images/ober.jpg" alt="Tolga – Ober" loading="lazy">
+                    </a>
+                </figure>
                 <h4>Tolga</h4>
                 <p class="role">Ober</p>
                 <blockquote>“Gastvrijheid begint met een glimlach.”</blockquote>
-            </div>
+            </article>
         </div>
     </section>
+
+    <!-- LIGHTBOXLAR -->
+    <div id="lb-ulgar" class="team-lightbox">
+        <a class="lb-bg" href="#" aria-label="Sluiten"></a>
+        <img src="images/ulgar.png" alt="Ulgar – Chef">
+    </div>
+    <div id="lb-anita" class="team-lightbox">
+        <a class="lb-bg" href="#" aria-label="Sluiten"></a>
+        <img src="images/Anita.png" alt="Anita – Medewerker">
+    </div>
+    <div id="lb-tolga" class="team-lightbox">
+        <a class="lb-bg" href="#" aria-label="Sluiten"></a>
+        <img src="images/ober.jpg" alt="Tolga – Ober">
+    </div>
 
     <!-- ===================== WAAROM WIJ ===================== -->
     <section class="waaromwij" data-aos="fade-up">
@@ -146,31 +172,19 @@
         </div>
     </section>
 
-    <!-- ===================== FAVORI SLIDER ===================== -->
-    <section class="favorites" data-aos="fade-up">
-        <h2>Een Greep uit Onze Favorieten</h2>
+   
+    <!-- ===================== VIDEOS ===================== -->
+    <section class="videos" id="videos">
+        <h2>Video’s</h2>
+        <div class="vid-list">
+            <article class="vid-card"><figure class="media"><video src="videos/video6.mp4" poster="images/grill-poster.jpg" playsinline muted loop preload="metadata" controls></video></figure><div class="body"><h3>Vers uit de Oven</h3></div></article>
+            <article class="vid-card"><figure class="media"><video src="videos/video7.mp4" poster="images/grill-poster.jpg" playsinline muted loop preload="metadata" controls></video></figure><div class="body"><h3>Service & Sfeer</h3></div></article>
+            <article class="vid-card"><figure class="media"><video src="videos/video1.mp4" poster="images/mezze-poster.jpg" playsinline muted loop preload="metadata" controls></video></figure><div class="body"><h3>Behind the Scenes</h3></div></article>
+            <article class="vid-card"><figure class="media"><video src="videos/video2.mp4" poster="images/grill-poster.jpg" playsinline muted loop preload="metadata" controls></video></figure><div class="body"><h3>Op de Grill</h3></div></article>
+            <article class="vid-card"><figure class="media"><video src="videos/video4.mp4" poster="images/grill-poster.jpg" playsinline muted loop preload="metadata" controls></video></figure><div class="body"><h3>Dagverse Specials</h3></div></article>
+            <article class="vid-card"><figure class="media"><video src="videos/video5.mp4" poster="images/grill-poster.jpg" playsinline muted loop preload="metadata" controls></video></figure><div class="body"><h3>Keukenmomenten</h3></div></article>
 
-        <div class="swiper favorites-swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide favorite-card"><img src="images/dish1.jpg" alt="Iskender" /><h4>Iskender</h4></div>
-                <div class="swiper-slide favorite-card"><img src="images/dish2.jpg" alt="Manti" /><h4>Manti</h4></div>
-                <div class="swiper-slide favorite-card"><img src="images/dish3.jpg" alt="Mezze Mix" /><h4>Mezze Mix</h4></div>
-                <div class="swiper-slide favorite-card"><img src="images/dish1.jpg" alt="Köfte" /><h4>Köfte</h4></div>
-                <div class="swiper-slide favorite-card"><img src="images/dish4.jpg" alt="Dagsoep" /><h4>Dagsoep</h4></div>
-
-                <div class="swiper-slide favorite-card"><img src="images/dish1.jpg" alt="Iskender" /><h4>Iskender</h4></div>
-                <div class="swiper-slide favorite-card"><img src="images/dish2.jpg" alt="Manti" /><h4>Manti</h4></div>
-                <div class="swiper-slide favorite-card"><img src="images/dish1.jpg" alt="Mezze Mix" /><h4>Mezze Mix</h4></div>
-                <div class="swiper-slide favorite-card"><img src="images/dish2.jpg" alt="Köfte" /><h4>Köfte</h4></div>
-                <div class="swiper-slide favorite-card"><img src="images/dish3.jpg" alt="Dagsoep" /><h4>Dagsoep</h4></div>
-            </div>
-
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
         </div>
-
-        <a href="menu.html" class="btn">Bekijk Volledig Menu</a>
     </section>
 
     <!-- Footer -->
@@ -198,10 +212,7 @@
                 pagination: { el: '.swiper-pagination', clickable: true },
                 spaceBetween: 30,
                 slidesPerView: 1,
-                breakpoints: {
-                    768: { slidesPerView: 2 },
-                    1024: { slidesPerView: 3 }
-                }
+                breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
             });
         });
 
@@ -213,29 +224,53 @@
             const onScroll = () => { el.style.transform = `translateY(${window.scrollY * speed}px)`; };
             window.addEventListener('scroll', onScroll, { passive: true });
         })();
-    </script>
 
-
-    <script>
+        // Rotating badge
         const messages = [
             { title: "Uw Tafel Wacht", desc: "Reserveer vandaag nog" },
             { title: "Special van de Dag", desc: "Proef onze chef’s creatie" },
             { title: "Sinds 1998", desc: "Meer dan 25 jaar smaak & gastvrijheid" },
             { title: "Met Liefde Bereid", desc: "Alleen de beste ingrediënten" }
         ];
-
         let currentIndex = 0;
         const titleEl = document.getElementById("badge-title");
         const descEl = document.getElementById("badge-desc");
-
         setInterval(() => {
             currentIndex = (currentIndex + 1) % messages.length;
             titleEl.textContent = messages[currentIndex].title;
             descEl.textContent = messages[currentIndex].desc;
-        }, 4000); // change every 4 seconds
+        }, 4000);
+
+        // Autoplay/pause videos on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const vids = document.querySelectorAll('.videos video');
+
+            // görünürlükte oynat/durdur
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    const v = e.target;
+                    if (e.isIntersecting) { v.play().catch(() => { }); }
+                    else { v.pause(); }
+                });
+            }, { threshold: 0.6 });
+
+            vids.forEach(v => {
+                // varsayılan hız: 0.85 (biraz yavaş)
+                const rate = parseFloat(v.dataset.speed || '0.65');
+
+                // hızı her oynatmada/metadata yüklendiğinde uygula (Safari uyumu)
+                const applyRate = () => { v.playbackRate = rate; };
+                v.addEventListener('loadedmetadata', applyRate);
+                v.addEventListener('play', applyRate);
+                if (v.readyState >= 1) applyRate();
+
+                io.observe(v);
+            });
+        });
     </script>
 
 
+     
 
 </body>
 </html>
