@@ -273,7 +273,7 @@ img {
     }
 
     .slide.s5 {
-        background-image: url('../images/img9.jpg');
+        background-image: url('../images/img9.JPG');
         animation-delay: calc(var(--hero-cycle) * -0.8);
     }
 
