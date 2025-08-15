@@ -247,8 +247,6 @@ img {
     /* slower, uses shared cycle; 'both' prevents jump on loop */
     animation: fadeZoom var(--hero-cycle) linear infinite both;
     will-change: opacity,transform;
-    background: #000;
-    background-color: #000
 }
 
     /* images + seamless staggering via negative delays (5 slides = 20% each) */
@@ -277,36 +275,30 @@ img {
         animation-delay: calc(var(--hero-cycle) * -0.8);
     }
 
-/* --- HERO cross-fade: symmetric in/out, no gaps --- */
 @keyframes fadeZoom {
-    /* hidden at start */
     0% {
         opacity: 0;
         transform: scale(1.06);
     }
-    /* fade IN (0 → 10%) */
-    10% {
+
+    6% {
         opacity: 1;
-        transform: scale(1.03);
     }
-    /* fully visible (10 → 20%) */
+
     20% {
         opacity: 1;
         transform: scale(1.00);
     }
-    /* fade OUT (20 → 30%) */
-    30% {
+
+    24% {
         opacity: 0;
-        transform: scale(1.00);
     }
-    /* stay hidden (30 → 100%) */
+
     100% {
         opacity: 0;
         transform: scale(1.00);
     }
 }
-
-
 
 /* overlay layer */
 .hero-overlay {
