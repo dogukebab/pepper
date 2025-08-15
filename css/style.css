@@ -247,6 +247,8 @@ img {
     /* slower, uses shared cycle; 'both' prevents jump on loop */
     animation: fadeZoom var(--hero-cycle) linear infinite both;
     will-change: opacity,transform;
+    background: #000;
+    background-color: #000
 }
 
     /* images + seamless staggering via negative delays (5 slides = 20% each) */
