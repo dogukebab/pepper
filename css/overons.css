@@ -662,3 +662,22 @@
         gap: 6px;
     }
 }
+
+/* === FIX: Team kartındaki sarı rozet çok uzun === */
+.team-member-card h4 .badge {
+    /* hero'daki .badge kurallarını ezer */
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    min-width: 0 !important;
+    padding: .35rem .8rem !important;
+    border-radius: 999px !important;
+    background: gold !important; /* istersen #ffd400 yap */
+    color: #2d2d2d !important;
+    font-size: .85rem !important;
+    font-weight: 700;
+    line-height: 1;
+    border: 0;
+    box-shadow: none;
+}
+
