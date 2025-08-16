@@ -12,11 +12,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css?v=7">
     <script src="js/script.js?v=2" defer></script>
-
 </head>
 <body>
-
-
     <header class="navbar">
         <a href="index.html" class="logo" aria-label="Dogu Kebab Home">
             <img src="images/logo.jpg" alt="Dogu Kebab logo" />
@@ -43,8 +40,8 @@
             <h1>Een warme ontmoeting begint hier</h1>
             <p>Wij staan klaar voor al uw vragen, ideeën of feedback.</p>
 
-            <!-- NEW: Scroll-to button -->
-            <a href="#contact" class="cta-scroll">Stuur ons een bericht</a>
+            <!-- Updated: point directly to the form -->
+            <a href="#contact-form" class="cta-scroll">Stuur ons een bericht</a>
             <span class="scroll-chevron" aria-hidden="true"></span>
         </div>
     </section>
@@ -73,7 +70,8 @@
                 </ul>
             </div>
 
-            <div class="contact-form">
+            <!-- Updated: added id="contact-form" so the anchor lands here -->
+            <div class="contact-form" id="contact-form">
                 <h2>Stuur ons een bericht</h2>
 
                 <!-- ✅ Wired to Web3Forms -->
@@ -146,7 +144,7 @@
             }
         });
 
-        // focus first field after smooth scroll
+        // After smooth scroll, focus the first field
         document.querySelector('.cta-scroll')?.addEventListener('click', () => {
             setTimeout(() => document.getElementById('cname')?.focus(), 600);
         });
