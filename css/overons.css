@@ -653,14 +653,19 @@
     }
 
     .badge {
-        padding: 10px 12px;
+
+
+        padding: 10px 14px;
+     
     }
 }
 
 @media (max-height:680px) {
     .badges {
         gap: 6px;
+       
     }
+ 
 }
 
 /* === FIX: Team kartındaki sarı rozet çok uzun === */
@@ -681,3 +686,71 @@
     box-shadow: none;
 }
 
+/* === Team kartındaki sarı rozet: mobilde uzunluğu düzelt === */
+.team-member-card h4 .badge {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: auto !important;
+    min-width: 0 !important; /* global min-width:180px'i ezer */
+    flex: 0 0 auto !important; /* esnemesin */
+    white-space: nowrap; /* tek satır, taşmasın */
+    padding: .28rem .62rem; /* küçük pill */
+    font-size: .82rem;
+    border-radius: 999px;
+}
+
+/* Küçük ekranlarda biraz daha kompakt */
+@media (max-width: 480px) {
+    .team-member-card h4 {
+        gap: .35rem; /* başlık ile rozet arası */
+    }
+
+        .team-member-card h4 .badge {
+            padding: .24rem .55rem;
+            font-size: .78rem;
+        }
+}
+
+/* === WAAROM WIJ: Mobilde kayma/taşma düzeltmesi === */
+@media (max-width: 640px) {
+    .waaromwij {
+        padding: 1.25rem 0.9rem;
+    }
+
+    .why-container {
+        grid-template-columns: 1fr !important; /* tek sütun */
+        gap: 14px; /* daha sıkı boşluk */
+    }
+
+    .why-card {
+        padding: 1rem 0.9rem;
+        min-height: unset;
+        border-radius: 12px;
+    }
+
+        .why-card img {
+            width: 36px;
+            height: 36px;
+            padding: 8px;
+            margin-bottom: 0.5rem;
+        }
+
+        .why-card h3 {
+            font-size: 1.05rem;
+            margin: .2rem 0 .3rem;
+        }
+
+        .why-card p {
+            font-size: .95rem;
+            line-height: 1.55;
+        }
+}
+
+/* Tablet aralığında daha dengeli iki sütun (isteğe bağlı,
+   mevcut 1024px kuralını biraz daha aşağı çekmek için) */
+@media (max-width: 900px) and (min-width: 641px) {
+    .why-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
