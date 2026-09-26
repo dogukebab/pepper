@@ -2,9 +2,8 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-    <title>Dogu Kebab – Heerlijke Gerechten & Authentieke Smaak</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dogu Kebab – Fine Dining & Cuisine</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Great+Vibes&display=swap" rel="stylesheet" />
@@ -18,11 +17,133 @@
 
 <body>
 
+    <!-- =========================================
+         JAARLIJKS VERLOF POPUP
+         Gesloten: 26 september t/m 9 oktober 2026
+         ========================================= -->
+
+    <div id="pepper-verlof-overlay">
+        <div class="pepper-verlof-container">
+
+            <img
+                src="images/verlof.jpeg"
+                alt="Jaarlijks verlof - gesloten van 26 september t/m 9 oktober"
+            />
+
+            <button id="pepper-verlof-button" type="button">
+                Naar de website
+            </button>
+
+        </div>
+    </div>
+
+    <style>
+        #pepper-verlof-overlay {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 999999;
+
+            background: rgba(0, 0, 0, 0.94);
+
+            display: none;
+            justify-content: center;
+            align-items: center;
+
+            padding: 15px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        #pepper-verlof-overlay .pepper-verlof-container {
+            width: 100%;
+            max-width: 650px;
+            text-align: center;
+        }
+
+        #pepper-verlof-overlay img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 82vh;
+            object-fit: contain;
+            margin: 0 auto;
+            border-radius: 6px;
+        }
+
+        #pepper-verlof-button {
+            display: inline-block;
+
+            margin-top: 14px;
+            padding: 14px 32px;
+
+            background: #d32f2f;
+            color: #ffffff;
+
+            border: none;
+            border-radius: 6px;
+
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        #pepper-verlof-button:hover {
+            background: #b71c1c;
+        }
+
+        @media (max-width: 600px) {
+            #pepper-verlof-overlay {
+                padding: 8px;
+            }
+
+            #pepper-verlof-overlay img {
+                max-height: 82vh;
+            }
+
+            #pepper-verlof-button {
+                width: 100%;
+                padding: 14px 20px;
+                font-size: 16px;
+            }
+        }
+    </style>
+
+    <script>
+        (function () {
+
+            const overlay = document.getElementById("pepper-verlof-overlay");
+            const button = document.getElementById("pepper-verlof-button");
+
+            // Gesloten van 26 september t/m 9 oktober 2026
+            const nu = new Date();
+            const beginVerlof = new Date(2026, 8, 26, 0, 0, 0);
+            const eindeVerlof = new Date(2026, 9, 10, 0, 0, 0);
+
+            if (nu >= beginVerlof && nu < eindeVerlof) {
+                overlay.style.display = "flex";
+                document.documentElement.style.overflow = "hidden";
+                document.body.style.overflow = "hidden";
+            }
+
+            button.addEventListener("click", function () {
+                overlay.style.display = "none";
+                document.documentElement.style.overflow = "";
+                document.body.style.overflow = "";
+            });
+
+        })();
+    </script>
+
+
     <!-- Navbar -->
     <header class="navbar">
         <a href="index.html" class="logo" aria-label="Dogu Kebab Home">
-            <img src="images/logo.jpg" alt="Dogu Kebab logo" />
-            <span class="brand-text">Pepper&nbsp;Lier</span>
+            <img src="images/logo.png" alt="Dogu Kebab logo" />
+            <span class="brand-text">Dogu&nbsp;Kebab</span>
         </a>
 
         <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"
@@ -45,12 +166,10 @@
             <div class="slide s1"></div>
             <div class="slide s2"></div>
             <div class="slide s3"></div>
-            <div class="slide s4"></div> <!-- new -->
-            <div class="slide s5"></div> <!-- new -->
         </div>
         <div class="hero-overlay">
             <div class="hero-content" data-aos="fade-up">
-                <h1>Welkom bij Pepper Lier</h1>
+                <h1>Welkom bij Dogu Kebab</h1>
                 <p>Waar gastronomie en sfeer samenkomen.</p>
                 <a href="reserveren.html" class="btn">Reserveer Nu</a>
             </div>
@@ -66,12 +185,14 @@
                 <div class="divider"></div>
                 <p>Authentieke Turkse gerechten in Lier <br />Since 1997.</p>
             </div>
+
             <div class="special-item">
                 <img src="https://sktperfectdemo.com/demos/bistro/wp-content/uploads/2018/03/icon2.png" alt="Dessert icoon" />
                 <h3>Desserts</h3>
                 <div class="divider"></div>
                 <p>Baklava, Künefe en andere lekkernijen<br />uit de Turkse en Belgische keuken.</p>
             </div>
+
             <div class="special-item">
                 <img src="https://cdn-icons-png.flaticon.com/512/3075/3075975.png" alt="Drinken icoon" />
                 <h3>Drinken</h3>
@@ -85,47 +206,26 @@
     <section class="gallery-strip" data-aos="fade-left">
         <div class="gallery-marquee">
             <div class="track">
-                <!-- SET 1 -->
-                <!-- SET 1 -->
 
-                <img src="images/img16.JPG" alt="Gallery 34">
-                <img src="images/img15.JPG" alt="Gallery 20">
-                <img src="images/img20.jpg" alt="Gallery 3">
-                <img src="images/img12.JPG" alt="Gallery 4">
-                <img src="images/img13.JPG" alt="Gallery 9">
-                <img src="images/img7.JPG" alt="Gallery 12">
-                <img src="images/foto6.jpg" alt="Gallery 11">
-                <img src="images/foto17.jpg" alt="Gallery 23">
-                <img src="images/img22.jpg" alt="Gallery 10">
-                <img src="images/foto10.jpg" alt="Gallery 35">
-                <img src="images/foto11.jpg" alt="Gallery 38">
-                <img src="images/foto12.jpg" alt="Gallery 60">
-                <img src="images/dishes10.png" alt="Gallery 7">
-                <img src="images/img85.JPG" alt="Gallery 15">
-                <img src="images/img91.JPG" alt="Gallery 16">
-            
-                <img src="images/kucuk.png" alt="Gallery 1">
-                <img src="images/doner1.png" alt="Gallery 2">
-                <img src="images/doner2.png" alt="Gallery 3">
-                <img src="images/doner3.png" alt="Gallery 62">
-                <img src="images/foto9.jpg" alt="Gallery 5">
-                <img src="images/foto8.jpg" alt="Gallery 6">
-                <img src="images/foto4.jpg" alt="Gallery 10">
-
-                <img src="images/foto15.jpg" alt="Gallery 30">
-                <img src="images/doner4.jpg" alt="Gallery 70">
-                <img src="images/kucuk.png" alt="Gallery 61">
-                <img src="images/doner5.jpg" alt="Gallery 32">
-                <img src="images/tatli2.png" alt="Gallery 8">
-                <img src="images/tatli3.png" alt="Gallery 13">
-                <img src="images/tatli4.png" alt="Gallery 14">
-                <img src="images/foto20.jpg" alt="Gallery 36">
-                <img src="images/tatli4.png" alt="Gallery 81">
-                <img src="images/foto21.jpg" alt="Gallery 21">
-                <img src="images/foto18.jpg" alt="Gallery 18">
-                <img src="images/tatli1.png" alt="Gallery 37">
+                <!-- SET 1 -->
+                <img src="images/hero1.jpg" alt="Gallery 1">
+                <img src="images/hero2.jpg" alt="Gallery 2">
+                <img src="images/hero3.jpg" alt="Gallery 3">
+                <img src="images/dish1.jpg" alt="Gallery 4">
+                <img src="images/dish2.jpg" alt="Gallery 5">
+                <img src="images/dish3.jpg" alt="Gallery 6">
+                <img src="images/dish4.jpg" alt="Gallery 7">
+                <img src="images/dishes10.png" alt="Gallery 8">
 
                 <!-- SET 2 (aynı görselleri tekrar ederek düzgün loop sağlıyoruz) -->
+                <img src="images/hero1.jpg" alt="Gallery 1 duplicate">
+                <img src="images/hero2.jpg" alt="Gallery 2 duplicate">
+                <img src="images/hero3.jpg" alt="Gallery 3 duplicate">
+                <img src="images/dish1.jpg" alt="Gallery 4 duplicate">
+                <img src="images/dish2.jpg" alt="Gallery 5 duplicate">
+                <img src="images/dish3.jpg" alt="Gallery 6 duplicate">
+                <img src="images/dish4.jpg" alt="Gallery 7 duplicate">
+                <img src="images/dishes10.png" alt="Gallery 8 duplicate">
 
             </div>
         </div>
@@ -139,46 +239,18 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2025 Pepper Lier. Alle rechten voorbehouden.</p>
+        <p>&copy; 2025 Dogu Kebab. Alle rechten voorbehouden.</p>
+
         <div class="socials">
             <a href="https://www.facebook.com/dogukebab/?locale=tr_TR">Facebook</a>
-            <a href="https://www.instagram.com/pepper_lier/">Instagram</a>
-            <a href="https://wa.me/+32496452649" target="_blank" rel="noopener" aria-label="WhatsApp">Whatsapp</a>
+            <a href="https://www.instagram.com">Instagram</a>
+            <a href="https://web.whatsapp.com/">Whatsapp</a>
         </div>
     </footer>
 
     <!-- AOS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init();</script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
+    <script>AOS.init();</script> 
 
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const imgs = document.querySelectorAll('.gallery-marquee img');
-            const box = document.createElement('div');
-            box.className = 'lightbox';
-            const big = document.createElement('img');
-            box.appendChild(big);
-            document.body.appendChild(box);
-
-            imgs.forEach(i => i.addEventListener('click', () => {
-                big.src = i.src;              // istersen i.dataset.full ile büyük dosya
-                box.classList.add('active');
-            }));
-
-            // Karanlık alana veya ✕'e tıklayınca kapat
-            box.addEventListener('click', () => box.classList.remove('active'));
-        });
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.gallery-strip img').forEach(img => {
-                img.addEventListener('error', () => img.remove());
-            });
-        });
-    </script>
-
-
-</body>
+</body> 
 </html>
